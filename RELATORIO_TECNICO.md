@@ -19,7 +19,7 @@ API REST de carteira digital com conciliação entre saldos e lançamentos. Valo
 | RNF03 | Atingir pelo menos 85% de linhas e 80% de branches, com limites independentes e falha automática abaixo de qualquer um deles. |
 | RNF04 | Executar lint, testes e cobertura em push/PR; guardar logs e relatórios como artefatos. |
 | RNF05 | Suportar teste com 50 requisições de transferência simultaneamente em andamento, medindo erros e latência. |
-| RNF06 | Adotar branches curtas, commits convencionais e integração validada; exigir revisão e verificações na configuração remota. |
+| RNF06 | Adotar branches curtas, commits convencionais e integração validada; exigir revisão e verificações na configuração remota. Atendimento parcial: não houve revisão por outro integrante. |
 
 ## 2. Arquitetura e contrato HTTP
 
@@ -66,11 +66,11 @@ A estratégia adotada é Trunk-Based Development com as branches curtas `feat/re
 | Item | Evidência e situação |
 |---|---|
 | Repositório | [lauraserbeto/projeto-self-testing-ci](https://github.com/lauraserbeto/projeto-self-testing-ci) |
-| Integração contínua | [Execução 44303909576](https://github.com/lauraserbeto/projeto-self-testing-ci/actions/runs/44303909576), commit `533485a`: jobs `quality` e `load` concluídos com sucesso. |
-| Pull request | [PR #1](https://github.com/lauraserbeto/projeto-self-testing-ci/pull/1), de `feat/entrega-api` para `main`: aberto, aguardando revisão. |
-| Proteção de `main` | Ativada: checks `quality` e `load` obrigatórios, branch atualizada antes do merge, uma aprovação e descarte de aprovações após novos commits. Regras aplicadas aos administradores; force-push e exclusão bloqueados. |
+| Integração contínua | [Execução 44305272010](https://github.com/lauraserbeto/projeto-self-testing-ci/actions/runs/44305272010), commit `a6ac870`: jobs `quality` e `load` concluídos com sucesso. |
+| Pull request | [PR #1](https://github.com/lauraserbeto/projeto-self-testing-ci/pull/1), de `feat/entrega-api` para `main`: aberto, sem aprovação de revisão obrigatória. |
+| Proteção de `main` | Ativada: checks `quality` e `load` obrigatórios e branch atualizada antes do merge. Aprovações obrigatórias: zero. Regras aplicadas aos administradores; force-push e exclusão bloqueados. |
 
-A proteção foi conferida pela API do GitHub e corresponde a `.github/main-protection.json`. A pendência é a aprovação de outro integrante e o merge do PR após os checks da última atualização passarem. A implementação ainda não foi integrada à `main` remota.
+A proteção foi conferida pela API do GitHub e corresponde a `.github/main-protection.json`. Por indisponibilidade de outro integrante para revisar, a exigência de aprovação foi retirada, mantendo os checks obrigatórios. Não houve revisão por outra pessoa; portanto, o critério de PR revisado do enunciado não foi atendido. O merge depende dos checks da última atualização passarem. A implementação ainda não foi integrada à `main` remota.
 
 ## 5. Desempenho e resiliência
 
