@@ -1,0 +1,364 @@
+FFFFFFFFFFFFFFFFFF                                                       [100%]
+================================== FAILURES ===================================
+_______________________ test_accepts_positive_cents[1] ________________________
+
+value = 1
+
+    @pytest.mark.parametrize("value", [1, 100, 999999999])
+    def test_accepts_positive_cents(value):
+>       assert validate_amount(value) == value
+               ^^^^^^^^^^^^^^^^^^^^^^
+
+tests\unit\test_rules.py:8: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+value = 1, allow_zero = False
+
+    def validate_amount(value, *, allow_zero=False):
+>       raise NotImplementedError
+E       NotImplementedError
+
+src\domain\rules.py:8: NotImplementedError
+______________________ test_accepts_positive_cents[100] _______________________
+
+value = 100
+
+    @pytest.mark.parametrize("value", [1, 100, 999999999])
+    def test_accepts_positive_cents(value):
+>       assert validate_amount(value) == value
+               ^^^^^^^^^^^^^^^^^^^^^^
+
+tests\unit\test_rules.py:8: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+value = 100, allow_zero = False
+
+    def validate_amount(value, *, allow_zero=False):
+>       raise NotImplementedError
+E       NotImplementedError
+
+src\domain\rules.py:8: NotImplementedError
+___________________ test_accepts_positive_cents[999999999] ____________________
+
+value = 999999999
+
+    @pytest.mark.parametrize("value", [1, 100, 999999999])
+    def test_accepts_positive_cents(value):
+>       assert validate_amount(value) == value
+               ^^^^^^^^^^^^^^^^^^^^^^
+
+tests\unit\test_rules.py:8: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+value = 999999999, allow_zero = False
+
+    def validate_amount(value, *, allow_zero=False):
+>       raise NotImplementedError
+E       NotImplementedError
+
+src\domain\rules.py:8: NotImplementedError
+______________________ test_initial_balance_can_be_zero _______________________
+
+    def test_initial_balance_can_be_zero():
+>       assert validate_amount(0, allow_zero=True) == 0
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\unit\test_rules.py:12: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+value = 0, allow_zero = True
+
+    def validate_amount(value, *, allow_zero=False):
+>       raise NotImplementedError
+E       NotImplementedError
+
+src\domain\rules.py:8: NotImplementedError
+_______________________ test_rejects_invalid_amount[0] ________________________
+
+value = 0
+
+    @pytest.mark.parametrize("value", [0, -1, 1.5, "100", True, None])
+    def test_rejects_invalid_amount(value):
+        with pytest.raises(WalletError, match="centavos"):
+>           validate_amount(value)
+
+tests\unit\test_rules.py:18: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+value = 0, allow_zero = False
+
+    def validate_amount(value, *, allow_zero=False):
+>       raise NotImplementedError
+E       NotImplementedError
+
+src\domain\rules.py:8: NotImplementedError
+_______________________ test_rejects_invalid_amount[-1] _______________________
+
+value = -1
+
+    @pytest.mark.parametrize("value", [0, -1, 1.5, "100", True, None])
+    def test_rejects_invalid_amount(value):
+        with pytest.raises(WalletError, match="centavos"):
+>           validate_amount(value)
+
+tests\unit\test_rules.py:18: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+value = -1, allow_zero = False
+
+    def validate_amount(value, *, allow_zero=False):
+>       raise NotImplementedError
+E       NotImplementedError
+
+src\domain\rules.py:8: NotImplementedError
+______________________ test_rejects_invalid_amount[1.5] _______________________
+
+value = 1.5
+
+    @pytest.mark.parametrize("value", [0, -1, 1.5, "100", True, None])
+    def test_rejects_invalid_amount(value):
+        with pytest.raises(WalletError, match="centavos"):
+>           validate_amount(value)
+
+tests\unit\test_rules.py:18: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+value = 1.5, allow_zero = False
+
+    def validate_amount(value, *, allow_zero=False):
+>       raise NotImplementedError
+E       NotImplementedError
+
+src\domain\rules.py:8: NotImplementedError
+______________________ test_rejects_invalid_amount[100] _______________________
+
+value = '100'
+
+    @pytest.mark.parametrize("value", [0, -1, 1.5, "100", True, None])
+    def test_rejects_invalid_amount(value):
+        with pytest.raises(WalletError, match="centavos"):
+>           validate_amount(value)
+
+tests\unit\test_rules.py:18: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+value = '100', allow_zero = False
+
+    def validate_amount(value, *, allow_zero=False):
+>       raise NotImplementedError
+E       NotImplementedError
+
+src\domain\rules.py:8: NotImplementedError
+______________________ test_rejects_invalid_amount[True] ______________________
+
+value = True
+
+    @pytest.mark.parametrize("value", [0, -1, 1.5, "100", True, None])
+    def test_rejects_invalid_amount(value):
+        with pytest.raises(WalletError, match="centavos"):
+>           validate_amount(value)
+
+tests\unit\test_rules.py:18: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+value = True, allow_zero = False
+
+    def validate_amount(value, *, allow_zero=False):
+>       raise NotImplementedError
+E       NotImplementedError
+
+src\domain\rules.py:8: NotImplementedError
+______________________ test_rejects_invalid_amount[None] ______________________
+
+value = None
+
+    @pytest.mark.parametrize("value", [0, -1, 1.5, "100", True, None])
+    def test_rejects_invalid_amount(value):
+        with pytest.raises(WalletError, match="centavos"):
+>           validate_amount(value)
+
+tests\unit\test_rules.py:18: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+value = None, allow_zero = False
+
+    def validate_amount(value, *, allow_zero=False):
+>       raise NotImplementedError
+E       NotImplementedError
+
+src\domain\rules.py:8: NotImplementedError
+_____________ test_transfer_conserves_total[100-20-30-expected0] ______________
+
+source = 100, target = 20, amount = 30, expected = (70, 50)
+
+    @pytest.mark.parametrize("source,target,amount,expected", [
+        (100, 20, 30, (70, 50)), (100, 0, 100, (0, 100)), (1, 0, 1, (0, 1)),
+    ])
+    def test_transfer_conserves_total(source, target, amount, expected):
+>       result = transfer_balances(source, target, amount)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\unit\test_rules.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+source = 100, target = 20, amount = 30
+
+    def transfer_balances(source, target, amount):
+>       raise NotImplementedError
+E       NotImplementedError
+
+src\domain\rules.py:12: NotImplementedError
+_____________ test_transfer_conserves_total[100-0-100-expected1] ______________
+
+source = 100, target = 0, amount = 100, expected = (0, 100)
+
+    @pytest.mark.parametrize("source,target,amount,expected", [
+        (100, 20, 30, (70, 50)), (100, 0, 100, (0, 100)), (1, 0, 1, (0, 1)),
+    ])
+    def test_transfer_conserves_total(source, target, amount, expected):
+>       result = transfer_balances(source, target, amount)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\unit\test_rules.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+source = 100, target = 0, amount = 100
+
+    def transfer_balances(source, target, amount):
+>       raise NotImplementedError
+E       NotImplementedError
+
+src\domain\rules.py:12: NotImplementedError
+_______________ test_transfer_conserves_total[1-0-1-expected2] ________________
+
+source = 1, target = 0, amount = 1, expected = (0, 1)
+
+    @pytest.mark.parametrize("source,target,amount,expected", [
+        (100, 20, 30, (70, 50)), (100, 0, 100, (0, 100)), (1, 0, 1, (0, 1)),
+    ])
+    def test_transfer_conserves_total(source, target, amount, expected):
+>       result = transfer_balances(source, target, amount)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\unit\test_rules.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+source = 1, target = 0, amount = 1
+
+    def transfer_balances(source, target, amount):
+>       raise NotImplementedError
+E       NotImplementedError
+
+src\domain\rules.py:12: NotImplementedError
+__________________________ test_insufficient_balance __________________________
+
+    def test_insufficient_balance():
+        with pytest.raises(WalletError, match="Saldo insuficiente") as error:
+>           transfer_balances(10, 0, 11)
+
+tests\unit\test_rules.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+source = 10, target = 0, amount = 11
+
+    def transfer_balances(source, target, amount):
+>       raise NotImplementedError
+E       NotImplementedError
+
+src\domain\rules.py:12: NotImplementedError
+___________________ test_transfer_rejects_invalid_amount[0] ___________________
+
+amount = 0
+
+    @pytest.mark.parametrize("amount", [0, -10, 1.2, True])
+    def test_transfer_rejects_invalid_amount(amount):
+        with pytest.raises(WalletError):
+>           transfer_balances(100, 100, amount)
+
+tests\unit\test_rules.py:39: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+source = 100, target = 100, amount = 0
+
+    def transfer_balances(source, target, amount):
+>       raise NotImplementedError
+E       NotImplementedError
+
+src\domain\rules.py:12: NotImplementedError
+__________________ test_transfer_rejects_invalid_amount[-10] __________________
+
+amount = -10
+
+    @pytest.mark.parametrize("amount", [0, -10, 1.2, True])
+    def test_transfer_rejects_invalid_amount(amount):
+        with pytest.raises(WalletError):
+>           transfer_balances(100, 100, amount)
+
+tests\unit\test_rules.py:39: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+source = 100, target = 100, amount = -10
+
+    def transfer_balances(source, target, amount):
+>       raise NotImplementedError
+E       NotImplementedError
+
+src\domain\rules.py:12: NotImplementedError
+__________________ test_transfer_rejects_invalid_amount[1.2] __________________
+
+amount = 1.2
+
+    @pytest.mark.parametrize("amount", [0, -10, 1.2, True])
+    def test_transfer_rejects_invalid_amount(amount):
+        with pytest.raises(WalletError):
+>           transfer_balances(100, 100, amount)
+
+tests\unit\test_rules.py:39: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+source = 100, target = 100, amount = 1.2
+
+    def transfer_balances(source, target, amount):
+>       raise NotImplementedError
+E       NotImplementedError
+
+src\domain\rules.py:12: NotImplementedError
+_________________ test_transfer_rejects_invalid_amount[True] __________________
+
+amount = True
+
+    @pytest.mark.parametrize("amount", [0, -10, 1.2, True])
+    def test_transfer_rejects_invalid_amount(amount):
+        with pytest.raises(WalletError):
+>           transfer_balances(100, 100, amount)
+
+tests\unit\test_rules.py:39: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+source = 100, target = 100, amount = True
+
+    def transfer_balances(source, target, amount):
+>       raise NotImplementedError
+E       NotImplementedError
+
+src\domain\rules.py:12: NotImplementedError
+=========================== short test summary info ===========================
+FAILED tests/unit/test_rules.py::test_accepts_positive_cents[1] - NotImplemen...
+FAILED tests/unit/test_rules.py::test_accepts_positive_cents[100] - NotImplem...
+FAILED tests/unit/test_rules.py::test_accepts_positive_cents[999999999] - Not...
+FAILED tests/unit/test_rules.py::test_initial_balance_can_be_zero - NotImplem...
+FAILED tests/unit/test_rules.py::test_rejects_invalid_amount[0] - NotImplemen...
+FAILED tests/unit/test_rules.py::test_rejects_invalid_amount[-1] - NotImpleme...
+FAILED tests/unit/test_rules.py::test_rejects_invalid_amount[1.5] - NotImplem...
+FAILED tests/unit/test_rules.py::test_rejects_invalid_amount[100] - NotImplem...
+FAILED tests/unit/test_rules.py::test_rejects_invalid_amount[True] - NotImple...
+FAILED tests/unit/test_rules.py::test_rejects_invalid_amount[None] - NotImple...
+FAILED tests/unit/test_rules.py::test_transfer_conserves_total[100-20-30-expected0]
+FAILED tests/unit/test_rules.py::test_transfer_conserves_total[100-0-100-expected1]
+FAILED tests/unit/test_rules.py::test_transfer_conserves_total[1-0-1-expected2]
+FAILED tests/unit/test_rules.py::test_insufficient_balance - NotImplementedError
+FAILED tests/unit/test_rules.py::test_transfer_rejects_invalid_amount[0] - No...
+FAILED tests/unit/test_rules.py::test_transfer_rejects_invalid_amount[-10] - ...
+FAILED tests/unit/test_rules.py::test_transfer_rejects_invalid_amount[1.2] - ...
+FAILED tests/unit/test_rules.py::test_transfer_rejects_invalid_amount[True]
+18 failed in 1.87s

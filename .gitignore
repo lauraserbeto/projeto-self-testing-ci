@@ -6,4 +6,5 @@ __pycache__/
 *.db
 *.db-*
 .env
-artifacts/coverage_html/
+artifacts/*
+!artifacts/tdd-*.log
