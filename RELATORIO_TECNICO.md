@@ -59,15 +59,18 @@ Resultado final de Coverage.py: **100% de linhas e 100% de branches**, sem exclu
 
 O workflow `.github/workflows/ci.yml` monitora pushes em `main`, `feat/**` e `fix/**`, além de PRs para `main`. O job `quality` executa Ruff, formatação, as três suítes e o gate; `load` executa a carga após aprovação de `quality`. Logs e cobertura são publicados mesmo quando uma etapa falha, com retenção de 14 dias.
 
-A estratégia adotada é Trunk-Based Development com as branches curtas `feat/regras-financeiras` e `feat/api-ci`. O primeiro merge integra o ciclo TDD após 28 testes aprovados; o segundo reúne API, integração, E2E, CI e carga após validação completa. Ambos usam `--no-ff`, preservando a evidência no histórico. O commit inicial contém somente a configuração das ferramentas. Consulte `git log --graph --oneline --all`.
+A estratégia adotada é Trunk-Based Development com as branches curtas `feat/regras-financeiras` e `feat/api-ci`. O primeiro merge local integra o ciclo TDD após 28 testes aprovados; o segundo reúne API, integração, E2E, CI e carga após validação completa. Ambos usam `--no-ff`, preservando a evidência no histórico. A publicação da implementação está na branch `feat/entrega-api`, proposta para integração em `main` por pull request. O commit inicial contém somente a configuração das ferramentas. Consulte `git log --graph --oneline --all`.
 
-**Etapa remota pendente:** não há repositório remoto nem sessão GitHub autenticada neste ambiente. Portanto, não houve execução do Actions, PR revisado ou ativação de proteção de `main`. O arquivo `.github/main-protection.json` está pronto para exigir uma aprovação, descartar revisões antigas, impedir force-push/exclusão e exigir os checks `quality` e `load`, inclusive para administradores. Depois de publicar o repositório e autenticar o GitHub CLI, aplique:
+**Evidências remotas verificadas em 18/11/2026:**
 
-```sh
-gh api --method PUT repos/OWNER/REPO/branches/main/protection --input .github/main-protection.json
-```
+| Item | Evidência e situação |
+|---|---|
+| Repositório | [lauraserbeto/projeto-self-testing-ci](https://github.com/lauraserbeto/projeto-self-testing-ci) |
+| Integração contínua | [Execução 44303909576](https://github.com/lauraserbeto/projeto-self-testing-ci/actions/runs/44303909576), commit `533485a`: jobs `quality` e `load` concluídos com sucesso. |
+| Pull request | [PR #1](https://github.com/lauraserbeto/projeto-self-testing-ci/pull/1), de `feat/entrega-api` para `main`: aberto, aguardando revisão. |
+| Proteção de `main` | Ativada: checks `quality` e `load` obrigatórios, branch atualizada antes do merge, uma aprovação e descarte de aprovações após novos commits. Regras aplicadas aos administradores; force-push e exclusão bloqueados. |
 
-Substitua `OWNER/REPO` pelo destino real. Novas alterações devem ser feitas em branch curta, passar pelos checks e receber revisão antes do merge. O YAML sozinho não ativa o bloqueio de merges no GitHub.
+A proteção foi conferida pela API do GitHub e corresponde a `.github/main-protection.json`. A pendência é a aprovação de outro integrante e o merge do PR após os checks da última atualização passarem. A implementação ainda não foi integrada à `main` remota.
 
 ## 5. Desempenho e resiliência
 
