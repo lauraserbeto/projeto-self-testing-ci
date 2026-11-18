@@ -59,18 +59,18 @@ Resultado final de Coverage.py: **100% de linhas e 100% de branches**, sem exclu
 
 O workflow `.github/workflows/ci.yml` monitora pushes em `main`, `feat/**` e `fix/**`, além de PRs para `main`. O job `quality` executa Ruff, formatação, as três suítes e o gate; `load` executa a carga após aprovação de `quality`. Logs e cobertura são publicados mesmo quando uma etapa falha, com retenção de 14 dias.
 
-A estratégia adotada é Trunk-Based Development com as branches curtas `feat/regras-financeiras` e `feat/api-ci`. O primeiro merge local integra o ciclo TDD após 28 testes aprovados; o segundo reúne API, integração, E2E, CI e carga após validação completa. Ambos usam `--no-ff`, preservando a evidência no histórico. A publicação da implementação está na branch `feat/entrega-api`, proposta para integração em `main` por pull request. O commit inicial contém somente a configuração das ferramentas. Consulte `git log --graph --oneline --all`.
+A estratégia adotada é Trunk-Based Development com as branches curtas `feat/regras-financeiras` e `feat/api-ci`. O primeiro merge local integra o ciclo TDD após 28 testes aprovados; o segundo reúne API, integração, E2E, CI e carga após validação completa. Ambos usam `--no-ff`, preservando a evidência no histórico. A implementação foi publicada na branch `feat/entrega-api` e integrada à `main` remota pelo PR #1, com merge commit `b64adc6`. O commit inicial contém somente a configuração das ferramentas. Consulte `git log --graph --oneline --all`.
 
 **Evidências remotas verificadas em 18/11/2026:**
 
 | Item | Evidência e situação |
 |---|---|
 | Repositório | [lauraserbeto/projeto-self-testing-ci](https://github.com/lauraserbeto/projeto-self-testing-ci) |
-| Integração contínua | [Execução 44305272010](https://github.com/lauraserbeto/projeto-self-testing-ci/actions/runs/44305272010), commit `a6ac870`: jobs `quality` e `load` concluídos com sucesso. |
-| Pull request | [PR #1](https://github.com/lauraserbeto/projeto-self-testing-ci/pull/1), de `feat/entrega-api` para `main`: aberto, sem aprovação de revisão obrigatória. |
+| Integração contínua | [Execução 44308205450](https://github.com/lauraserbeto/projeto-self-testing-ci/actions/runs/44308205450), commit de merge `b64adc6` na `main`: jobs `quality` e `load` concluídos com sucesso. |
+| Pull request | [PR #1](https://github.com/lauraserbeto/projeto-self-testing-ci/pull/1), de `feat/entrega-api` para `main`: integrado em 18/11/2026, sem revisão por outra pessoa. |
 | Proteção de `main` | Ativada: checks `quality` e `load` obrigatórios e branch atualizada antes do merge. Aprovações obrigatórias: zero. Regras aplicadas aos administradores; force-push e exclusão bloqueados. |
 
-A proteção foi conferida pela API do GitHub e corresponde a `.github/main-protection.json`. Por indisponibilidade de outro integrante para revisar, a exigência de aprovação foi retirada, mantendo os checks obrigatórios. Não houve revisão por outra pessoa; portanto, o critério de PR revisado do enunciado não foi atendido. O merge depende dos checks da última atualização passarem. A implementação ainda não foi integrada à `main` remota.
+A proteção foi conferida pela API do GitHub e corresponde a `.github/main-protection.json`. Por indisponibilidade de outro integrante para revisar, a exigência de aprovação foi retirada, mantendo os checks obrigatórios. Não houve revisão por outra pessoa; portanto, o critério de PR revisado do enunciado não foi atendido. O PR #1 foi integrado após os checks passarem, e a execução subsequente na `main` também foi aprovada.
 
 ## 5. Desempenho e resiliência
 
